@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,9 +9,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final List<String> scheduleItems = [
+    '8:00 - 9:00',
+    '9:00 - 10:00',
+    '10:00 - 11:00',
+    '11:00 - 12:00',
+    '12:00 - 13:00',
+    '13:00 - 14:00',
+    '14:00 - 15:00',
+    '15:00 - 16:00',
+    '16:00 - 17:00',
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -47,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Column(
           children: [
             ImageSlideshow(
-                indicatorColor: Color.fromARGB(255, 0, 0, 0),
+                indicatorColor: const Color.fromARGB(255, 0, 0, 0),
                 indicatorRadius: 4,
                 indicatorPadding: 15,
                 autoPlayInterval: 5000,
@@ -68,14 +78,14 @@ class _HomeScreenState extends State<HomeScreen> {
               children: <Widget>[
                 Expanded(
                   child: FloatingActionButton.small(
-                      elevation: 0,
+                      elevation: 0.3,
                       onPressed: () {},
+                      backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
+                      foregroundColor: Colors.black87,
                       child: const Text(
                         'Расписание',
                         style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
-                      foregroundColor: Colors.black87),
+                      )),
                 ),
                 const SizedBox(
                   height: 50,
@@ -87,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Expanded(
                   child: FloatingActionButton.small(
-                    elevation: 0,
+                    elevation: 0.3,
                     onPressed: () {},
                     backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
                     child: const Text(
@@ -96,10 +106,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 10), // Add space between the buttons
+                const SizedBox(width: 10),
                 Expanded(
                   child: FloatingActionButton.small(
-                    elevation: 0,
+                    elevation: 0.3,
                     onPressed: () {},
                     backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
                     child: const Text(
@@ -109,6 +119,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
+            ),
+            Expanded(
+              child: ListView.separated(
+                itemCount: scheduleItems.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(scheduleItems[index]),
+                    trailing: const Icon(
+                      Icons.keyboard_arrow_right_sharp,
+                      color: Color.fromARGB(126, 0, 0, 0),
+                    ),
+                    onTap: () {},
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return const Divider(
+                    height: 1,
+                    color: Colors.grey,
+                  );
+                },
+              ),
             )
           ],
         ),
