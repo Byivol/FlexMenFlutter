@@ -75,49 +75,58 @@ class _HomeScreenState extends State<HomeScreen> {
                       fit: BoxFit.cover),
                 ]),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Expanded(
-                  child: FloatingActionButton.small(
+                  child: Container(
+                    padding: const EdgeInsets.all(4),
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    child: FloatingActionButton.extended(
                       elevation: 0.3,
                       onPressed: () {},
                       backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
-                      foregroundColor: Colors.black87,
-                      child: const Text(
-                        'Расписание',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      )),
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
+                      label: const Text('Расписание',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w900, fontSize: 15)),
+                      icon: const Icon(Icons.assignment),
+                    ),
+                  ),
+                )
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: FloatingActionButton.small(
-                    elevation: 0.3,
-                    onPressed: () {},
-                    backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
-                    child: const Text(
-                      'Обратная связь',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: FloatingActionButton.small(
-                    elevation: 0.3,
-                    onPressed: () {},
-                    backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
-                    child: const Text(
-                      'Личный кабинет',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
+                Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    padding: const EdgeInsets.all(4),
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    child: Expanded(
+                      child: FloatingActionButton.extended(
+                        elevation: 0.1,
+                        onPressed: () {},
+                        backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
+                        label: const Text(
+                          'Обратная связь',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        icon: const Icon(Icons.sms_outlined),
+                      ),
+                    )),
+                Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    padding: const EdgeInsets.all(4),
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    child: Expanded(
+                      child: FloatingActionButton.extended(
+                        elevation: 0.1,
+                        onPressed: () {},
+                        backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
+                        label: const Text('Личный кабинет',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        icon: const Icon(Icons.account_circle_rounded),
+                      ),
+                    ))
               ],
             ),
             Expanded(
