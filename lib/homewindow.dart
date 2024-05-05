@@ -33,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
           toolbarHeight: 60,
-          shadowColor: Colors.black54,
           elevation: 4.0,
           leading: IconButton(
             onPressed: () {},
@@ -80,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.all(4),
-                    height: MediaQuery.of(context).size.height * 0.08,
+                    height: MediaQuery.of(context).size.height * 0.06,
                     child: FloatingActionButton.extended(
                       elevation: 0.3,
                       onPressed: () {},
@@ -100,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                     width: MediaQuery.of(context).size.width * 0.5,
                     padding: const EdgeInsets.all(4),
-                    height: MediaQuery.of(context).size.height * 0.08,
+                    height: MediaQuery.of(context).size.height * 0.06,
                     child: Expanded(
                       child: FloatingActionButton.extended(
                         elevation: 0.1,
@@ -116,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                     width: MediaQuery.of(context).size.width * 0.5,
                     padding: const EdgeInsets.all(4),
-                    height: MediaQuery.of(context).size.height * 0.08,
+                    height: MediaQuery.of(context).size.height * 0.06,
                     child: Expanded(
                       child: FloatingActionButton.extended(
                         elevation: 0.1,
@@ -152,7 +151,56 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ],
         ),
+        bottomNavigationBar: const BottomNavigationBarExample(),
       ),
     );
+  }
+}
+
+class BottomNavigationBarExample extends StatefulWidget {
+  const BottomNavigationBarExample({super.key});
+
+  @override
+  State<BottomNavigationBarExample> createState() =>
+      _BottomNavigationBarExampleState();
+}
+
+class _BottomNavigationBarExampleState
+    extends State<BottomNavigationBarExample> {
+  int _selectedIndex = 0;
+
+  static const List<BottomNavigationBarItem> _items = [
+    BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Главная'),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.directions_run), label: 'Мои занятия'),
+    BottomNavigationBarItem(icon: Icon(Icons.business), label: 'О студии'),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.notifications_outlined), label: 'Уведомления'),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.format_list_bulleted), label: 'Ещё'),
+  ];
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Color.fromARGB(186, 61, 61, 61),
+        iconSize: 26,
+        elevation: 0,
+        unselectedFontSize: 10,
+        selectedFontSize: 10,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: _items,
+        type: BottomNavigationBarType.fixed,
+        landscapeLayout: BottomNavigationBarLandscapeLayout.linear,
+        selectedLabelStyle: const TextStyle(
+            overflow: TextOverflow.visible, fontWeight: FontWeight.bold),
+        unselectedLabelStyle: const TextStyle(overflow: TextOverflow.visible));
   }
 }
