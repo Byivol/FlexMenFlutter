@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.only(top: 8, left: 6, right: 6),
-                    height: MediaQuery.of(context).size.height * 0.07,
+                    height: MediaQuery.of(context).size.height * 0.06,
                     child: FloatingActionButton.extended(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)),
