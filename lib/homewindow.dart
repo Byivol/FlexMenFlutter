@@ -134,27 +134,38 @@ class _HomeScreenState extends State<HomeScreen> {
                     ))
               ],
             ),
-            Expanded(
-              child: ListView.separated(
-                itemCount: scheduleItems.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(scheduleItems[index]),
-                    trailing: const Icon(
-                      Icons.keyboard_arrow_right_sharp,
-                      color: Color.fromARGB(126, 0, 0, 0),
+            Row(
+              children: [
+                Expanded(
+                    child: ExpansionTile(
+                  title: Text('Кнопка'),
+                  children: [
+                    Container(
+                      height: 250,
+                      child: ListView.separated(
+                        itemCount: scheduleItems.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(scheduleItems[index]),
+                            trailing: const Icon(
+                              Icons.keyboard_arrow_right_sharp,
+                              color: Color.fromARGB(126, 0, 0, 0),
+                            ),
+                            onTap: () {},
+                          );
+                        },
+                        separatorBuilder: (context, index) {
+                          return const Divider(
+                            height: 1,
+                            color: Colors.grey,
+                          );
+                        },
+                      ),
                     ),
-                    onTap: () {},
-                  );
-                },
-                separatorBuilder: (context, index) {
-                  return const Divider(
-                    height: 1,
-                    color: Colors.grey,
-                  );
-                },
-              ),
-            )
+                  ],
+                )),
+              ],
+            ),
           ],
         ),
         bottomNavigationBar: const BottomNavigationBarExample(),
