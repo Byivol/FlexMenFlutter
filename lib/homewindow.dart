@@ -12,9 +12,9 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<String> scheduleItems = [
     'Сегодня\n12:00\n60 мин.',
     'Сегодня\n12:30\n60 мин.',
-    '13:00',
-    '14:00',
-    '14:30',
+    'Сегодня\n13:00\n60 мин',
+    'Сегодня\n14:00\n60 мин',
+    'Сегодня\n14:30\n60 мин',
   ];
   @override
   Widget build(BuildContext context) {
