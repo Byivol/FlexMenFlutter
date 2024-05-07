@@ -10,11 +10,15 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<String> scheduleItems = [
-    'Сегодня\n12:00\n60 мин.',
-    'Сегодня\n12:30\n60 мин.',
-    '13:00',
-    '14:00',
-    '14:30',
+    '8:00 - 9:00',
+    '9:00 - 10:00',
+    '10:00 - 11:00',
+    '11:00 - 12:00',
+    '12:00 - 13:00',
+    '13:00 - 14:00',
+    '14:00 - 15:00',
+    '15:00 - 16:00',
+    '16:00 - 17:00',
   ];
   @override
   Widget build(BuildContext context) {
@@ -59,15 +63,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 isLoop: true,
                 children: [
                   Image.network(
-                    'https://i.ibb.co/tLnV37G/c-PY0-Ckv-Pgm8.jpg',
+                    'https://i.ibb.co/942zm3Q/515c770e78f1110a21b3f4c3084a2b30-640x360.jpg',
                     fit: BoxFit.cover,
                   ),
                   Image.network(
-                      'https://i.ibb.co/3FdKtHm/x-Ie-TEr-SMPb-E.jpg',
+                      'https://i.ibb.co/vBx3V0b/forest-landscape-71767-127.jpg',
                       fit: BoxFit.cover),
-                  Image.network('https://i.ibb.co/9ZLsRdQ/w9-e-H08dl-T0.jpg',
-                      fit: BoxFit.cover),
-                  Image.network('https://i.ibb.co/yYnpftL/w5wnkp8k5-Nw.jpg',
+                  Image.network('https://i.ibb.co/zRr9pt0/orig.webp',
                       fit: BoxFit.cover),
                 ]),
             Row(
@@ -82,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(8)),
                       elevation: 0.3,
                       onPressed: () {},
-                      backgroundColor: Color.fromARGB(255, 255, 216, 87),
+                      backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
                       label: const Text('Расписание',
                           style: TextStyle(
                               fontWeight: FontWeight.w400, fontSize: 20)),
@@ -105,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.circular(8)),
                         elevation: 0.1,
                         onPressed: () {},
-                        backgroundColor: const Color.fromARGB(255, 255, 216, 87),
+                        backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
                         label: const Text(
                           'Обратная связь',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -123,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.circular(8)),
                         elevation: 0.1,
                         onPressed: () {},
-                        backgroundColor: const Color.fromARGB(255, 255, 216, 87),
+                        backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
                         label: const Text('Личный кабинет',
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         icon: const Icon(Icons.account_circle_rounded),
@@ -131,38 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ))
               ],
             ),
-            Row(
-              children: [
-                Expanded(
-                    child: ExpansionTile(
-                  title: Text('Ближайшие занятия:'),
-                  children: [
-                    Container(
-                      height: 250,
-                      child: ListView.separated(
-                        itemCount: scheduleItems.length,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Text(scheduleItems[index]),
-                            trailing: const Icon(
-                              Icons.keyboard_arrow_right_sharp,
-                              color: Color.fromARGB(126, 0, 0, 0),
-                            ),
-                            onTap: () {},
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return const Divider(
-                            height: 1,
-                            color: Colors.grey,
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                )),
-              ],
-            ),
+            ExpansionTileListView(scheduleItems: scheduleItems)
           ],
         ),
         bottomNavigationBar: const BottomNavigationBarExample(),
@@ -203,7 +174,7 @@ class _BottomNavigationBarExampleState
   Widget build(BuildContext context) {
     return BottomNavigationBar(
         selectedItemColor: Colors.black,
-        unselectedItemColor: Color.fromARGB(186, 61, 61, 61),
+        unselectedItemColor: const Color.fromARGB(186, 61, 61, 61),
         iconSize: 26,
         elevation: 0,
         unselectedFontSize: 10,
@@ -237,10 +208,10 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
         Expanded(
           child: ExpansionTile(
             onExpansionChanged: (e) {},
-            title: Text("You title text"),
+            title: const Text("You title text"),
             children: [
               ListTile(
-                leading: Icon(Icons.account_circle),
+                leading: const Icon(Icons.account_circle),
                 title: Text(scheduleItems[0]),
                 onTap: () {},
               )
