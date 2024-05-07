@@ -58,14 +58,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 300,
                 isLoop: true,
                 children: [
-                  Image.network(
-                    'https://i.ibb.co/942zm3Q/515c770e78f1110a21b3f4c3084a2b30-640x360.jpg',
+                 Image.network(
+                    'https://i.ibb.co/tLnV37G/c-PY0-Ckv-Pgm8.jpg',
                     fit: BoxFit.cover,
                   ),
                   Image.network(
-                      'https://i.ibb.co/vBx3V0b/forest-landscape-71767-127.jpg',
+                      'https://i.ibb.co/3FdKtHm/x-Ie-TEr-SMPb-E.jpg',
                       fit: BoxFit.cover),
-                  Image.network('https://i.ibb.co/zRr9pt0/orig.webp',
+                  Image.network('https://i.ibb.co/9ZLsRdQ/w9-e-H08dl-T0.jpg',
+                      fit: BoxFit.cover),
+                  Image.network('https://i.ibb.co/yYnpftL/w5wnkp8k5-Nw.jpg',
                       fit: BoxFit.cover),
                 ]),
             Row(
@@ -80,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(8)),
                       elevation: 0.3,
                       onPressed: () {},
-                      backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
+                      backgroundColor: const Color.fromARGB(255, 255, 216, 87),
                       label: const Text('Расписание',
                           style: TextStyle(
                               fontWeight: FontWeight.w400, fontSize: 20)),
@@ -103,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.circular(8)),
                         elevation: 0.1,
                         onPressed: () {},
-                        backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
+                        backgroundColor: const Color.fromARGB(255, 255, 216, 87),
                         label: const Text(
                           'Обратная связь',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -121,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.circular(8)),
                         elevation: 0.1,
                         onPressed: () {},
-                        backgroundColor: const Color.fromRGBO(236, 254, 33, 1),
+                        backgroundColor: const Color.fromARGB(255, 255, 216, 87),
                         label: const Text('Личный кабинет',
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         icon: const Icon(Icons.account_circle_rounded),
@@ -204,7 +206,7 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
         Expanded(
           child: ExpansionTile(
             onExpansionChanged: (e) {},
-            title: const Text("You title text"),
+            title: const Text("Ближайшие занятия:"),
             children: [
               ListTile(
                 leading: const Icon(Icons.account_circle),
