@@ -32,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
-          toolbarHeight: 60,
           elevation: 4.0,
           leading: IconButton(
             onPressed: () {},
@@ -134,38 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ))
               ],
             ),
-            Row(
-              children: [
-                Expanded(
-                    child: ExpansionTile(
-                  title: Text('Кнопка'),
-                  children: [
-                    Container(
-                      height: 250,
-                      child: ListView.separated(
-                        itemCount: scheduleItems.length,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Text(scheduleItems[index]),
-                            trailing: const Icon(
-                              Icons.keyboard_arrow_right_sharp,
-                              color: Color.fromARGB(126, 0, 0, 0),
-                            ),
-                            onTap: () {},
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return const Divider(
-                            height: 1,
-                            color: Colors.grey,
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                )),
-              ],
-            ),
+            ExpansionTileListView(scheduleItems: scheduleItems)
           ],
         ),
         bottomNavigationBar: const BottomNavigationBarExample(),
@@ -219,5 +187,38 @@ class _BottomNavigationBarExampleState
         selectedLabelStyle: const TextStyle(
             overflow: TextOverflow.visible, fontWeight: FontWeight.bold),
         unselectedLabelStyle: const TextStyle(overflow: TextOverflow.visible));
+  }
+}
+
+class ExpansionTileListView extends StatefulWidget {
+  final List<String> scheduleItems;
+  const ExpansionTileListView({required this.scheduleItems, super.key});
+
+  @override
+  State<ExpansionTileListView> createState() => _ExpansionTileListView();
+}
+
+class _ExpansionTileListView extends State<ExpansionTileListView> {
+  List<String> get scheduleItems => widget.scheduleItems;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: ExpansionTile(
+            onExpansionChanged: (e) {},
+            title: Text("You title text"),
+            children: [
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text(scheduleItems[0]),
+                onTap: () {},
+              )
+            ],
+          ),
+        ),
+      ],
+    );
   }
 }
