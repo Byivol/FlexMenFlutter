@@ -28,7 +28,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
-          toolbarHeight: 60,
           elevation: 4.0,
           leading: IconButton(
             onPressed: () {},
@@ -217,5 +216,38 @@ class _BottomNavigationBarExampleState
         selectedLabelStyle: const TextStyle(
             overflow: TextOverflow.visible, fontWeight: FontWeight.bold),
         unselectedLabelStyle: const TextStyle(overflow: TextOverflow.visible));
+  }
+}
+
+class ExpansionTileListView extends StatefulWidget {
+  final List<String> scheduleItems;
+  const ExpansionTileListView({required this.scheduleItems, super.key});
+
+  @override
+  State<ExpansionTileListView> createState() => _ExpansionTileListView();
+}
+
+class _ExpansionTileListView extends State<ExpansionTileListView> {
+  List<String> get scheduleItems => widget.scheduleItems;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: ExpansionTile(
+            onExpansionChanged: (e) {},
+            title: Text("You title text"),
+            children: [
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text(scheduleItems[0]),
+                onTap: () {},
+              )
+            ],
+          ),
+        ),
+      ],
+    );
   }
 }
