@@ -208,13 +208,18 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
           child: ExpansionTile(
             shape: const Border(bottom: BorderSide(width: 0.5)),
             onExpansionChanged: (e) {},
-            title: const Text("Ближайшие занятия:"),
+            title: const Text("Ближайшие :"),
             children: [
               ListTile(
                 leading: const Icon(Icons.account_circle),
                 title: Text(scheduleItems[0]),
                 onTap: () {},
-              )
+              ),
+              ListTile(
+                leading: const Icon(Icons.account_circle),
+                title: Text(scheduleItems[0]),
+                onTap: () {},
+              ),
             ],
           ),
         ),
