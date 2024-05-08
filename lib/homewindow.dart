@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(8)),
                       elevation: 0.3,
                       onPressed: () {},
-                      backgroundColor: const Color.fromARGB(255, 255, 216, 87),
+                      backgroundColor: Color.fromARGB(255, 82, 0, 0),
                       label: const Text('Расписание',
                           style: TextStyle(
                               fontWeight: FontWeight.w400, fontSize: 20)),
