@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+
+import 'imageSlideShow.dart';
+import 'checkmark.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,92 +50,108 @@ class _HomeScreenState extends State<HomeScreen> {
                 )),
           ],
         ),
-        body: Column(
-          children: [
-            ImageSlideshow(
-                indicatorColor: const Color.fromARGB(255, 0, 0, 0),
-                indicatorRadius: 4,
-                indicatorPadding: 15,
-                autoPlayInterval: 5000,
-                height: 300,
-                isLoop: true,
-                children: [
-                  Image.network(
-                    'https://i.ibb.co/tLnV37G/c-PY0-Ckv-Pgm8.jpg',
-                    fit: BoxFit.cover,
-                  ),
-                  Image.network('https://i.ibb.co/3FdKtHm/x-Ie-TEr-SMPb-E.jpg',
-                      fit: BoxFit.cover),
-                  Image.network('https://i.ibb.co/9ZLsRdQ/w9-e-H08dl-T0.jpg',
-                      fit: BoxFit.cover),
-                  Image.network('https://i.ibb.co/yYnpftL/w5wnkp8k5-Nw.jpg',
-                      fit: BoxFit.cover),
-                ]),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.only(top: 8, left: 6, right: 6),
-                    height: MediaQuery.of(context).size.height * 0.06,
-                    child: FloatingActionButton.extended(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      elevation: 0.3,
-                      onPressed: () {},
-                      backgroundColor: const Color.fromARGB(255, 255, 216, 87),
-                      label: const Text('Расписание',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400, fontSize: 20)),
-                      icon: const Icon(Icons.assignment),
-                    ),
-                  ),
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        body: CheckMarkIndicator(
+          child: ListView(
+              physics: const BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()),
               children: [
-                Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    padding: const EdgeInsets.only(top: 8, left: 6, right: 6),
-                    height: MediaQuery.of(context).size.height * 0.06,
-                    child: Expanded(
-                      child: FloatingActionButton.extended(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                        elevation: 0.1,
-                        onPressed: () {},
-                        backgroundColor:
-                            const Color.fromARGB(255, 255, 216, 87),
-                        label: const Text(
-                          'Обратная связь',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        icon: const Icon(Icons.sms_outlined),
-                      ),
-                    )),
-                Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    padding: const EdgeInsets.only(top: 8, left: 6, right: 6),
-                    height: MediaQuery.of(context).size.height * 0.06,
-                    child: Expanded(
-                      child: FloatingActionButton.extended(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                        elevation: 0.1,
-                        onPressed: () {},
-                        backgroundColor:
-                            const Color.fromARGB(255, 255, 216, 87),
-                        label: const Text('Личный кабинет',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        icon: const Icon(Icons.account_circle_rounded),
-                      ),
-                    ))
-              ],
-            ),
-            ExpansionTileListView(scheduleItems: scheduleItems)
-          ],
+                Column(
+                  children: [
+                    ImageSlideshow(
+                        indicatorColor: const Color.fromARGB(255, 0, 0, 0),
+                        indicatorRadius: 4,
+                        indicatorPadding: 15,
+                        autoPlayInterval: 5000,
+                        height: 300,
+                        isLoop: true,
+                        children: [
+                          Image.network(
+                            'https://i.ibb.co/tLnV37G/c-PY0-Ckv-Pgm8.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                          Image.network(
+                              'https://i.ibb.co/3FdKtHm/x-Ie-TEr-SMPb-E.jpg',
+                              fit: BoxFit.cover),
+                          Image.network(
+                              'https://i.ibb.co/9ZLsRdQ/w9-e-H08dl-T0.jpg',
+                              fit: BoxFit.cover),
+                          Image.network(
+                              'https://i.ibb.co/yYnpftL/w5wnkp8k5-Nw.jpg',
+                              fit: BoxFit.cover),
+                        ]),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            padding: const EdgeInsets.only(
+                                top: 8, left: 6, right: 6),
+                            height: MediaQuery.of(context).size.height * 0.06,
+                            child: FloatingActionButton.extended(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8)),
+                              elevation: 0.3,
+                              onPressed: () {},
+                              backgroundColor:
+                                  const Color.fromARGB(255, 255, 216, 87),
+                              label: const Text('Расписание',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 20)),
+                              icon: const Icon(Icons.assignment),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            padding: const EdgeInsets.only(
+                                top: 8, left: 6, right: 6),
+                            height: MediaQuery.of(context).size.height * 0.06,
+                            child: Expanded(
+                              child: FloatingActionButton.extended(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8)),
+                                elevation: 0.1,
+                                onPressed: () {},
+                                backgroundColor:
+                                    const Color.fromARGB(255, 255, 216, 87),
+                                label: const Text(
+                                  'Обратная связь',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                icon: const Icon(Icons.sms_outlined),
+                              ),
+                            )),
+                        Container(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            padding: const EdgeInsets.only(
+                                top: 8, left: 6, right: 6),
+                            height: MediaQuery.of(context).size.height * 0.06,
+                            child: Expanded(
+                              child: FloatingActionButton.extended(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8)),
+                                elevation: 0.1,
+                                onPressed: () {},
+                                backgroundColor:
+                                    const Color.fromARGB(255, 255, 216, 87),
+                                label: const Text('Личный кабинет',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
+                                icon: const Icon(Icons.account_circle_rounded),
+                              ),
+                            ))
+                      ],
+                    ),
+                    ExpansionTileListView(scheduleItems: scheduleItems)
+                  ],
+                ),
+              ]),
         ),
         bottomNavigationBar: const BottomNavigationBarExample(),
       ),
@@ -206,20 +224,68 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
       children: [
         Expanded(
           child: ExpansionTile(
-            shape: const Border(bottom: BorderSide(width: 0.5)),
+            initiallyExpanded: true,
+            shape: const Border(top: BorderSide.none),
             onExpansionChanged: (e) {},
-            title: const Text("Ближайшие :"),
+            title: const Text("Ближайшие занятия:"),
             children: [
               ListTile(
-                leading: const Icon(Icons.account_circle),
+                contentPadding: const EdgeInsets.only(left: 0.3),
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.circular(2),
+                  child: Container(
+                    width: 4,
+                    height: double.infinity,
+                    color: const Color.fromARGB(166, 59, 179, 81),
+                  ),
+                ),
+                trailing: const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 20,
+                  color: Color.fromARGB(153, 0, 0, 0),
+                ),
                 title: Text(scheduleItems[0]),
                 onTap: () {},
               ),
+              const Divider(height: 0),
               ListTile(
-                leading: const Icon(Icons.account_circle),
-                title: Text(scheduleItems[0]),
+                contentPadding: const EdgeInsets.only(left: 0.3),
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.circular(2),
+                  child: Container(
+                    width: 4,
+                    height: double.infinity,
+                    color: const Color.fromARGB(172, 145, 129, 64),
+                  ),
+                ),
+                trailing: const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 20,
+                  color: Color.fromARGB(153, 0, 0, 0),
+                ),
+                title: Text(scheduleItems[1]),
                 onTap: () {},
               ),
+              const Divider(height: 0),
+              ListTile(
+                contentPadding: const EdgeInsets.only(left: 0.3),
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.circular(2),
+                  child: Container(
+                    width: 4,
+                    height: double.infinity,
+                    color: const Color.fromARGB(184, 50, 68, 171),
+                  ),
+                ),
+                trailing: const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 20,
+                  color: Color.fromARGB(153, 0, 0, 0),
+                ),
+                title: Text(scheduleItems[2]),
+                onTap: () {},
+              ),
+              const Divider(height: 0),
             ],
           ),
         ),
