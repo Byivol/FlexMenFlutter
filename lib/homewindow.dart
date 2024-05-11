@@ -24,12 +24,42 @@ class _HomeScreenState extends State<HomeScreen> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'THE FLEX men | Тюмень ',
-            style: TextStyle(fontWeight: FontWeight.w100),
-          ),
+          titleSpacing: -1,
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
+          title: Center(child: RichText(
+            overflow: TextOverflow.ellipsis,
+            text: TextSpan(
+              style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+              children: [
+                TextSpan(
+                    text: 'THE',
+                    style:
+                        TextStyle(fontSize: 17, fontWeight: FontWeight.w100, letterSpacing: 2, )),
+                  TextSpan(
+                    text: ' ',
+                    style: TextStyle(fontSize: 25, letterSpacing: -2),
+                ),
+                TextSpan(
+                    text: 'FLEX ',
+                    style: TextStyle(
+                      letterSpacing: 2,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600
+                    )),
+                    TextSpan(
+                    text: 'men | Тюмень',
+                    style: TextStyle(
+                      letterSpacing: 2,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w100
+                    )),
+                    
+
+              ],
+            ),
+          ),
+          ),
           elevation: 4.0,
           leading: IconButton(
             onPressed: () {},
@@ -39,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  Icons.phone_outlined,
+                  Icons.call,
                   size: 26,
                 )),
             IconButton(
@@ -95,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               backgroundColor:
                                   const Color.fromARGB(255, 255, 216, 87),
                               label: const Text('Расписание',
-                                  style: TextStyle(
+                                  style: TextStyle( 
                                       fontWeight: FontWeight.w400,
                                       fontSize: 20)),
                               icon: const Icon(Icons.assignment),
@@ -236,12 +266,12 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                   child: Container(
                     width: 4,
                     height: double.infinity,
-                    color: const Color.fromARGB(166, 59, 179, 81),
+                    color: Color.fromARGB(166, 92, 241, 119),
                   ),
                 ),
                 trailing: const Icon(
                   Icons.arrow_forward_ios,
-                  size: 20,
+                  size: 15,
                   color: Color.fromARGB(153, 0, 0, 0),
                 ),
                 title: Text(scheduleItems[0]),
@@ -255,12 +285,12 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                   child: Container(
                     width: 4,
                     height: double.infinity,
-                    color: const Color.fromARGB(172, 145, 129, 64),
+                    color: Color.fromARGB(172, 181, 176, 253),
                   ),
                 ),
                 trailing: const Icon(
                   Icons.arrow_forward_ios,
-                  size: 20,
+                  size: 15,
                   color: Color.fromARGB(153, 0, 0, 0),
                 ),
                 title: Text(scheduleItems[1]),
@@ -274,12 +304,12 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                   child: Container(
                     width: 4,
                     height: double.infinity,
-                    color: const Color.fromARGB(184, 50, 68, 171),
+                    color: Color.fromARGB(184, 122, 195, 255),
                   ),
                 ),
                 trailing: const Icon(
                   Icons.arrow_forward_ios,
-                  size: 20,
+                  size: 15,
                   color: Color.fromARGB(153, 0, 0, 0),
                 ),
                 title: Text(scheduleItems[2]),
