@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       text: 'THE',
                       style: TextStyle(
                         fontSize: 17,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w300,
                         letterSpacing: 2,
                       )),
                   TextSpan(
@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(
                           letterSpacing: 2,
                           fontSize: 17,
-                          fontWeight: FontWeight.w100)),
+                          fontWeight: FontWeight.w300)),
                 ],
               ),
             ),
@@ -272,78 +272,182 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                         child: Container(
                           width: 4,
                           height: 60,
-                          color: const Color.fromARGB(166, 92, 241, 119),
+                          color: Color.fromARGB(166, 241, 23, 23),
                         ),
                       ),
                       const SizedBox(width: 20),
                       Text(
-                        'Сегодня\n16:30\n55 мин.',
+                        'Сегодня\n16:30\n60 мин.',
                         style: TextStyle(
                             height: 0,
                             fontSize: 14,
                             color: Color.fromARGB(169, 0, 0, 0),
                             fontWeight: FontWeight.w300),
-                      )
+                      ),
+                      const SizedBox(width: 30),
+                      RichText(
+              overflow: TextOverflow.ellipsis,
+              text: const TextSpan(
+                children: [
+                  TextSpan(
+                      text: 'KICKBOXING ',
+                      style: TextStyle( 
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 19,
+                        fontWeight: FontWeight.w400,
+                      )),
+                  TextSpan(
+                      text: '\nСвободно: 4',
+                      style: TextStyle(
+                          color: Color.fromARGB(185, 0, 0, 0),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w100)),
+                  TextSpan(
+                      text: '\nЕгоров Василий',
+                      style: TextStyle(
+                        color: Color.fromARGB(185, 0, 0, 0) ,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w100)),
+                ],
+              ),
+            ),
+                      Spacer(),
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 15,
+                        color: Color.fromARGB(153, 0, 0, 0),
+                      ),
                     ],
                   ),
                 ),
               ),
               const Divider(height: 0),
-              ListTile(
-                contentPadding: const EdgeInsets.only(left: 0.3),
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(2),
-                  child: Container(
-                    width: 4,
-                    height: double.infinity,
-                    color: const Color.fromARGB(166, 92, 241, 119),
-                  ),
-                ),
-                trailing: const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 15,
-                  color: Color.fromARGB(153, 0, 0, 0),
-                ),
-                title: Text(scheduleItems[0]),
-                onTap: () {},
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 80,
+                child: InkWell(
+                  onTap: () {},
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(5),
+                        child: Container(
+                          width: 4,
+                          height: 60,
+                          color: Color.fromARGB(137, 17, 255, 156),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Text(
+                        'Сегодня\n17:00\n60 мин.',
+                        style: TextStyle(
+                            height: 0,
+                            fontSize: 14,
+                            color: Color.fromARGB(169, 0, 0, 0),
+                            fontWeight: FontWeight.w300),
+                      ),
+                      const SizedBox(width: 30),
+                      RichText(
+              overflow: TextOverflow.ellipsis,
+              text: const TextSpan(
+                children: [
+                  TextSpan(
+                      text: 'CYCLING ',
+                      style: TextStyle( 
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 19,
+                        fontWeight: FontWeight.w400,
+                      )),
+                  TextSpan(
+                      text: '\nСвободно: 2',
+                      style: TextStyle(
+                          color: Color.fromARGB(185, 0, 0, 0),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w100)),
+                  TextSpan(
+                      text: '\nДинар Айдаров',
+                      style: TextStyle(
+                        color: Color.fromARGB(185, 0, 0, 0) ,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w100)),
+                ],
               ),
-              const Divider(height: 0),
-              ListTile(
-                contentPadding: const EdgeInsets.only(left: 0.3),
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(2),
-                  child: Container(
-                    width: 4,
-                    height: double.infinity,
-                    color: const Color.fromARGB(172, 181, 176, 253),
+            ),
+                      Spacer(),
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 15,
+                        color: Color.fromARGB(153, 0, 0, 0),
+                      ),
+                    ],
                   ),
                 ),
-                trailing: const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 15,
-                  color: Color.fromARGB(153, 0, 0, 0),
-                ),
-                title: Text(scheduleItems[1]),
-                onTap: () {},
               ),
+
+              
               const Divider(height: 0),
-              ListTile(
-                contentPadding: const EdgeInsets.only(left: 0.3),
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(2),
-                  child: Container(
-                    width: 4,
-                    height: double.infinity,
-                    color: const Color.fromARGB(184, 122, 195, 255),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 80,
+                child: InkWell(
+                  onTap: () {},
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(5),
+                        child: Container(
+                          width: 4,
+                          height: 60,
+                          color: Color.fromARGB(131, 255, 195, 126),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Text(
+                        'Сегодня\n17:30\n60 мин.',
+                        style: TextStyle(
+                            height: 0,
+                            fontSize: 14,
+                            color: Color.fromARGB(169, 0, 0, 0),
+                            fontWeight: FontWeight.w300),
+                      ),
+                      const SizedBox(width: 30),
+                      RichText(
+              overflow: TextOverflow.ellipsis,
+              text: const TextSpan(
+                children: [
+                  TextSpan(
+                      text: 'TRX ',
+                      style: TextStyle( 
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 19,
+                        fontWeight: FontWeight.w400,
+                      )),
+                  TextSpan(
+                      text: '\nСвободно: 1',
+                      style: TextStyle(
+                          color: Color.fromARGB(185, 0, 0, 0),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w100)),
+                  TextSpan(
+                      text: '\nЕгоров Василий',
+                      style: TextStyle(
+                        color: Color.fromARGB(185, 0, 0, 0) ,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w100)),
+                ],
+              ),
+            ),
+                      Spacer(),
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 15,
+                        color: Color.fromARGB(153, 0, 0, 0),
+                      ),
+                    ],
                   ),
                 ),
-                trailing: const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 15,
-                  color: Color.fromARGB(153, 0, 0, 0),
-                ),
-                title: Text(scheduleItems[2]),
-                onTap: () {},
               ),
               const Divider(height: 0),
             ],
