@@ -27,38 +27,38 @@ class _HomeScreenState extends State<HomeScreen> {
           titleSpacing: -1,
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
-          title: Center(child: RichText(
-            overflow: TextOverflow.ellipsis,
-            text: TextSpan(
-              style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-              children: [
-                TextSpan(
-                    text: 'THE',
-                    style:
-                        TextStyle(fontSize: 17, fontWeight: FontWeight.w100, letterSpacing: 2, )),
+          title: Center(
+            child: RichText(
+              overflow: TextOverflow.ellipsis,
+              text: const TextSpan(
+                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                children: [
+                  TextSpan(
+                      text: 'THE',
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w100,
+                        letterSpacing: 2,
+                      )),
                   TextSpan(
                     text: ' ',
                     style: TextStyle(fontSize: 25, letterSpacing: -2),
-                ),
-                TextSpan(
-                    text: 'FLEX ',
-                    style: TextStyle(
-                      letterSpacing: 2,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600
-                    )),
-                    TextSpan(
-                    text: 'men | Тюмень',
-                    style: TextStyle(
-                      letterSpacing: 2,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w100
-                    )),
-                    
-
-              ],
+                  ),
+                  TextSpan(
+                      text: 'FLEX ',
+                      style: TextStyle(
+                          letterSpacing: 2,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600)),
+                  TextSpan(
+                      text: 'men | Тюмень',
+                      style: TextStyle(
+                          letterSpacing: 2,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w100)),
+                ],
+              ),
             ),
-          ),
           ),
           elevation: 4.0,
           leading: IconButton(
@@ -125,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               backgroundColor:
                                   const Color.fromARGB(255, 255, 216, 87),
                               label: const Text('Расписание',
-                                  style: TextStyle( 
+                                  style: TextStyle(
                                       fontWeight: FontWeight.w400,
                                       fontSize: 20)),
                               icon: const Icon(Icons.assignment),
@@ -259,6 +259,36 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
             onExpansionChanged: (e) {},
             title: const Text("Ближайшие занятия:"),
             children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 80,
+                child: InkWell(
+                  onTap: () {},
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(5),
+                        child: Container(
+                          width: 4,
+                          height: 60,
+                          color: const Color.fromARGB(166, 92, 241, 119),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Text(
+                        'Сегодня\n16:30\n55 мин.',
+                        style: TextStyle(
+                            height: 0,
+                            fontSize: 14,
+                            color: Color.fromARGB(169, 0, 0, 0),
+                            fontWeight: FontWeight.w300),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              const Divider(height: 0),
               ListTile(
                 contentPadding: const EdgeInsets.only(left: 0.3),
                 leading: ClipRRect(
@@ -266,7 +296,7 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                   child: Container(
                     width: 4,
                     height: double.infinity,
-                    color: Color.fromARGB(166, 92, 241, 119),
+                    color: const Color.fromARGB(166, 92, 241, 119),
                   ),
                 ),
                 trailing: const Icon(
@@ -285,7 +315,7 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                   child: Container(
                     width: 4,
                     height: double.infinity,
-                    color: Color.fromARGB(172, 181, 176, 253),
+                    color: const Color.fromARGB(172, 181, 176, 253),
                   ),
                 ),
                 trailing: const Icon(
@@ -304,7 +334,7 @@ class _ExpansionTileListView extends State<ExpansionTileListView> {
                   child: Container(
                     width: 4,
                     height: double.infinity,
-                    color: Color.fromARGB(184, 122, 195, 255),
+                    color: const Color.fromARGB(184, 122, 195, 255),
                   ),
                 ),
                 trailing: const Icon(
