@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter_application_2/homewindow.dart';
 import 'Screens/notifications.dart';
 import 'Screens/qrcode.dart';
+=======
+import 'package:flutter_application_2/Home.dart';
+import 'Screens/Notifications.dart';
+import 'Screens/QRcode.dart';
+>>>>>>> 9906483a824b4ccf188cc6aeb3e0a7fdcef641a2
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -38,11 +44,11 @@ class _BottomNavigationBarState extends State<BottomNavigationBars> {
 
   int _selectedIndex = 0;
   final List<Widget> _navigationItems = [
-    HomeScreen(),
-    Text('1'),
-    Text('1'),
-    Notifications(),
-    Text('1'),
+    const HomeScreen(),
+    const Text('1'),
+    const Text('1'),
+    const Notifications(),
+    const Text('1'),
   ];
   static const List<BottomNavigationBarItem> _items = [
     BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Главная'),
@@ -118,7 +124,26 @@ class _BottomNavigationBarState extends State<BottomNavigationBars> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Notifications(),
+                      builder: (context) => Scaffold(
+                          appBar: AppBar(
+                        titleSpacing: -1,
+                        backgroundColor: Colors.black,
+                        foregroundColor: Colors.white,
+                        title: const Text('Уведомления',
+                            style: TextStyle(fontSize: 20)),
+                        leadingWidth: 100,
+                        leading: Center(
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text('Закрыть',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)))),
+                        centerTitle: true,
+                      )),
                     ),
                   );
                 },
