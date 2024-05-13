@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/homewindow.dart';
-import 'StartWindow.dart';
 import 'Screens/notifications.dart';
-import 'Screens/account.dart';
 import 'Screens/qrcode.dart';
-import 'Screens/notifications.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {

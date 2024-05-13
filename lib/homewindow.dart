@@ -3,7 +3,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'imageSlideShow.dart';
 import 'checkmark.dart';
 import 'Screens/account.dart';
-import 'Screens/qrcode.dart';
 import 'Screens/notifications.dart';
 import 'expansiontile.dart';
 
