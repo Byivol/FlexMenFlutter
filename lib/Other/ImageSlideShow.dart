@@ -6,7 +6,7 @@ import 'package:flutter_image_slideshow/src/indicator.dart';
 
 class ImageSlideshow extends StatefulWidget {
   const ImageSlideshow({
-    Key? key,
+    super.key,
     required this.children,
     this.width = double.infinity,
     this.height = 200,
@@ -20,7 +20,7 @@ class ImageSlideshow extends StatefulWidget {
     this.indicatorPadding = 4,
     this.indicatorBottomPadding = 10,
     this.disableUserScrolling = false,
-  }) : super(key: key);
+  });
 
   /// The widgets to display in the [ImageSlideshow].
   ///
