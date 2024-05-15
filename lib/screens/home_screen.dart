@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/Screens/Feedback.dart';
-import 'package:flutter_application_2/Screens/Schedule.dart';
-import 'Other/Imagesslideshow.dart';
-import 'Other/checkmark.dart';
-import 'Screens/Account.dart';
+import 'package:flutter_application_2/Routes/feedback.dart';
+import 'package:flutter_application_2/Routes/schedule.dart';
+import 'package:flutter_application_2/Additional/Imagesslideshow.dart';
+import 'package:flutter_application_2/additional/checkmark.dart';
+import 'package:flutter_application_2/Routes/account.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,6 +23,87 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        titleSpacing: -1,
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        title: Center(
+          child: RichText(
+            overflow: TextOverflow.ellipsis,
+            text: const TextSpan(
+              style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+              children: [
+                TextSpan(
+                    text: 'THE',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w300,
+                      letterSpacing: 2,
+                    )),
+                TextSpan(
+                  text: ' ',
+                  style: TextStyle(fontSize: 25, letterSpacing: -2),
+                ),
+                TextSpan(
+                    text: 'FLEX ',
+                    style: TextStyle(
+                        letterSpacing: 2,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w600)),
+                TextSpan(
+                    text: 'men | Тюмень',
+                    style: TextStyle(
+                        letterSpacing: 2,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w300)),
+              ],
+            ),
+          ),
+        ),
+        elevation: 4.0,
+        leading: IconButton(
+            onPressed: () {}, icon: const Icon(Icons.qr_code_scanner)),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.call,
+                size: 26,
+              )),
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Scaffold(
+                        appBar: AppBar(
+                      titleSpacing: -1,
+                      backgroundColor: Colors.black,
+                      foregroundColor: Colors.white,
+                      title: const Text('Уведомления',
+                          style: TextStyle(fontSize: 20)),
+                      leadingWidth: 100,
+                      leading: Center(
+                          child: TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text('Закрыть',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)))),
+                      centerTitle: true,
+                    )),
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.notifications,
+                size: 30,
+              )),
+        ],
+      ),
       body: CheckMarkIndicator(
         child: ListView(
             physics: const BouncingScrollPhysics(

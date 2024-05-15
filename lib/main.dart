@@ -1,13 +1,14 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +23,13 @@ class MyApp extends StatelessWidget {
 }
 
 class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({Key? key}) : super(key: key);
+  const BottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> _buildScreens() {
+    List<Widget> buildScreens() {
       return [
-        const Screen1(),
+        const HomeScreen(),
         const Screen2(),
         const Screen3(),
         const Screen4(),
@@ -36,7 +37,7 @@ class BottomNavBar extends StatelessWidget {
       ];
     }
 
-    List<PersistentBottomNavBarItem> _navBarsItems() {
+    List<PersistentBottomNavBarItem> navBarsItems() {
       return [
         PersistentBottomNavBarItem(
             activeColorPrimary: Colors.black,
@@ -78,32 +79,36 @@ class BottomNavBar extends StatelessWidget {
 
     controller = PersistentTabController(initialIndex: 0);
     return Scaffold(
+        appBar: AppBar(
+          title: const Text('124'),
+        ),
         bottomNavigationBar: PersistentTabView(
-      context,
-      screens: _buildScreens(),
-      items: _navBarsItems(),
-      controller: controller,
-      backgroundColor: Colors.white,
-      resizeToAvoidBottomInset: true,
-      popAllScreensOnTapOfSelectedTab: true,
-      popActionScreens: PopActionScreensType.all,
-      screenTransitionAnimation: const ScreenTransitionAnimation(
-        animateTabTransition: true,
-        curve: Curves.ease,
-        duration: Duration(milliseconds: 200),
-      ),
-      navBarStyle: NavBarStyle.simple,
-    ));
+          context,
+          screens: buildScreens(),
+          items: navBarsItems(),
+          controller: controller,
+          backgroundColor: Colors.white,
+          resizeToAvoidBottomInset: true,
+          popAllScreensOnTapOfSelectedTab: false,
+          hideNavigationBar: false,
+          hideNavigationBarWhenKeyboardShows: false,
+          popActionScreens: PopActionScreensType.all,
+          screenTransitionAnimation: const ScreenTransitionAnimation(
+            animateTabTransition: true,
+            curve: Curves.ease,
+            duration: Duration(milliseconds: 200),
+          ),
+          navBarStyle: NavBarStyle.simple,
+        ));
   }
 }
 
 class Screen1 extends StatelessWidget {
-  const Screen1({Key? key}) : super(key: key);
+  const Screen1({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Screen1')),
       body: Center(
         child: FloatingActionButton(
           onPressed: () {
@@ -122,7 +127,7 @@ class Screen1 extends StatelessWidget {
 }
 
 class Screen2 extends StatelessWidget {
-  const Screen2({Key? key}) : super(key: key);
+  const Screen2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +144,7 @@ class Screen2 extends StatelessWidget {
 }
 
 class Screen3 extends StatelessWidget {
-  const Screen3({Key? key}) : super(key: key);
+  const Screen3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -156,7 +161,7 @@ class Screen3 extends StatelessWidget {
 }
 
 class Screen4 extends StatelessWidget {
-  const Screen4({Key? key}) : super(key: key);
+  const Screen4({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -173,7 +178,7 @@ class Screen4 extends StatelessWidget {
 }
 
 class Screen5 extends StatelessWidget {
-  const Screen5({Key? key}) : super(key: key);
+  const Screen5({super.key});
 
   @override
   Widget build(BuildContext context) {
