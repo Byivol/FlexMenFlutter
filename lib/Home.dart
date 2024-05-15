@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/Screens/Feedback.dart';
 import 'package:flutter_application_2/Screens/Schedule.dart';
-import 'Other/imageSlideShow.dart';
+import 'Other/Imagesslideshow.dart';
 import 'Other/checkmark.dart';
 import 'Screens/Account.dart';
 
@@ -38,18 +38,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 300,
                       isLoop: true,
                       children: [
-                        Image.network(
-                          'https://i.ibb.co/tLnV37G/c-PY0-Ckv-Pgm8.jpg',
+                        Image.asset(
+                          'assets/images/image1.jpg',
                           fit: BoxFit.cover,
                         ),
-                        Image.network(
-                            'https://i.ibb.co/3FdKtHm/x-Ie-TEr-SMPb-E.jpg',
+                        Image.network('assets/images/image2.jpg',
                             fit: BoxFit.cover),
-                        Image.network(
-                            'https://i.ibb.co/9ZLsRdQ/w9-e-H08dl-T0.jpg',
+                        Image.network('assets/images/image3.jpg',
                             fit: BoxFit.cover),
-                        Image.network(
-                            'https://i.ibb.co/yYnpftL/w5wnkp8k5-Nw.jpg',
+                        Image.network('assets/images/image4.jpg',
                             fit: BoxFit.cover),
                       ]),
                   Row(

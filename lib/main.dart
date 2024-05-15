@@ -1,172 +1,190 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/Home.dart';
-import 'Screens/Notifications.dart';
-import 'Screens/QRcode.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+              backgroundColor: Colors.black, selectedItemColor: Colors.black)),
       debugShowCheckedModeBanner: false,
-      home: BottomNavigationBars(),
+      home: const BottomNavBar(),
     );
   }
 }
 
-class BottomNavigationBars extends StatefulWidget {
-  const BottomNavigationBars({super.key});
+class BottomNavBar extends StatelessWidget {
+  const BottomNavBar({Key? key}) : super(key: key);
 
   @override
-  State<BottomNavigationBars> createState() => _BottomNavigationBarState();
+  Widget build(BuildContext context) {
+    List<Widget> _buildScreens() {
+      return [
+        const Screen1(),
+        const Screen2(),
+        const Screen3(),
+        const Screen4(),
+        const Screen5(),
+      ];
+    }
+
+    List<PersistentBottomNavBarItem> _navBarsItems() {
+      return [
+        PersistentBottomNavBarItem(
+            activeColorPrimary: Colors.black,
+            inactiveColorPrimary: const Color.fromARGB(186, 61, 61, 61),
+            icon: const Icon(Icons.home_filled),
+            title: ("Главная"),
+            textStyle: const TextStyle(fontSize: 10)),
+        PersistentBottomNavBarItem(
+            activeColorPrimary: Colors.black,
+            inactiveColorPrimary: const Color.fromARGB(186, 61, 61, 61),
+            icon: const Icon(Icons.directions_run),
+            title: ("Мои занятия"),
+            textStyle: const TextStyle(fontSize: 10)),
+        PersistentBottomNavBarItem(
+            activeColorPrimary: Colors.black,
+            inactiveColorPrimary: const Color.fromARGB(186, 61, 61, 61),
+            icon: const Icon(Icons.business),
+            title: ("О студии"),
+            textStyle: const TextStyle(fontSize: 10)),
+        PersistentBottomNavBarItem(
+            activeColorSecondary: Colors.black,
+            inactiveColorPrimary: const Color.fromARGB(186, 61, 61, 61),
+            icon: const Icon(Icons.notifications_outlined),
+            title: ("Уведомления"),
+            textStyle: const TextStyle(fontSize: 10)),
+        PersistentBottomNavBarItem(
+            activeColorPrimary: Colors.black87,
+            inactiveColorPrimary: const Color.fromARGB(186, 61, 61, 61),
+            icon: const Icon(
+              Icons.format_list_bulleted,
+              size: 30,
+            ),
+            title: ("Ещё"),
+            textStyle: const TextStyle(fontSize: 10)),
+      ];
+    }
+
+    PersistentTabController controller;
+
+    controller = PersistentTabController(initialIndex: 0);
+    return Scaffold(
+        bottomNavigationBar: PersistentTabView(
+      context,
+      screens: _buildScreens(),
+      items: _navBarsItems(),
+      controller: controller,
+      backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: true,
+      popAllScreensOnTapOfSelectedTab: true,
+      popActionScreens: PopActionScreensType.all,
+      screenTransitionAnimation: const ScreenTransitionAnimation(
+        animateTabTransition: true,
+        curve: Curves.ease,
+        duration: Duration(milliseconds: 200),
+      ),
+      navBarStyle: NavBarStyle.simple,
+    ));
+  }
 }
 
-class _BottomNavigationBarState extends State<BottomNavigationBars> {
-  Future<void> _makePhoneCall() async {
-    final Uri launchUri = Uri(
-      scheme: 'tel',
-      path: '89292615056',
-    );
-    await launchUrl(launchUri);
-  }
-
-  int _selectedIndex = 0;
-  final List<Widget> _navigationItems = [
-    const HomeScreen(),
-    const Text('1'),
-    const Text('1'),
-    const Notifications(),
-    const Text('1'),
-  ];
-  static const List<BottomNavigationBarItem> _items = [
-    BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Главная'),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.directions_run), label: 'Мои занятия'),
-    BottomNavigationBarItem(icon: Icon(Icons.business), label: 'О студии'),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.notifications_outlined), label: 'Уведомления'),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.format_list_bulleted), label: 'Ещё'),
-  ];
+class Screen1 extends StatelessWidget {
+  const Screen1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          titleSpacing: -1,
-          backgroundColor: Colors.black,
-          foregroundColor: Colors.white,
-          title: Center(
-            child: RichText(
-              overflow: TextOverflow.ellipsis,
-              text: const TextSpan(
-                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-                children: [
-                  TextSpan(
-                      text: 'THE',
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w300,
-                        letterSpacing: 2,
-                      )),
-                  TextSpan(
-                    text: ' ',
-                    style: TextStyle(fontSize: 25, letterSpacing: -2),
-                  ),
-                  TextSpan(
-                      text: 'FLEX ',
-                      style: TextStyle(
-                          letterSpacing: 2,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600)),
-                  TextSpan(
-                      text: 'men | Тюмень',
-                      style: TextStyle(
-                          letterSpacing: 2,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w300)),
-                ],
-              ),
-            ),
-          ),
-          elevation: 4.0,
-          leading: IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const QrCode(),
-                  ),
-                );
-              },
-              icon: const Icon(Icons.qr_code_scanner)),
-          actions: [
-            IconButton(
-                onPressed: _makePhoneCall,
-                icon: const Icon(
-                  Icons.call,
-                  size: 26,
-                )),
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Scaffold(
-                          appBar: AppBar(
-                        titleSpacing: -1,
-                        backgroundColor: Colors.black,
-                        foregroundColor: Colors.white,
-                        title: const Text('Уведомления',
-                            style: TextStyle(fontSize: 20)),
-                        leadingWidth: 100,
-                        leading: Center(
-                            child: TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Text('Закрыть',
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)))),
-                        centerTitle: true,
-                      )),
-                    ),
-                  );
-                },
-                icon: const Icon(
-                  Icons.notifications,
-                  size: 30,
-                )),
-          ],
+      appBar: AppBar(title: const Text('Screen1')),
+      body: Center(
+        child: FloatingActionButton(
+          onPressed: () {
+            PersistentNavBarNavigator.pushNewScreen(
+              context,
+              screen: const Screen2(),
+              withNavBar: true,
+              pageTransitionAnimation: PageTransitionAnimation.cupertino,
+            );
+          },
+          child: const Text('Screen2'),
         ),
-        body: _navigationItems.elementAt(_selectedIndex),
-        bottomNavigationBar: BottomNavigationBar(
-            selectedItemColor: Colors.black,
-            unselectedItemColor: const Color.fromARGB(186, 61, 61, 61),
-            iconSize: 26,
-            elevation: 0,
-            unselectedFontSize: 10,
-            selectedFontSize: 10,
-            currentIndex: _selectedIndex,
-            onTap: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-            items: _items,
-            type: BottomNavigationBarType.fixed,
-            landscapeLayout: BottomNavigationBarLandscapeLayout.linear,
-            selectedLabelStyle: const TextStyle(
-                overflow: TextOverflow.visible, fontWeight: FontWeight.bold),
-            unselectedLabelStyle:
-                const TextStyle(overflow: TextOverflow.visible)));
+      ),
+    );
+  }
+}
+
+class Screen2 extends StatelessWidget {
+  const Screen2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Screen2')),
+      body: const Center(
+        child: Text(
+          'Screen2',
+          style: TextStyle(fontSize: 30),
+        ),
+      ),
+    );
+  }
+}
+
+class Screen3 extends StatelessWidget {
+  const Screen3({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Screen3')),
+      body: const Center(
+        child: Text(
+          'Screen3',
+          style: TextStyle(fontSize: 30),
+        ),
+      ),
+    );
+  }
+}
+
+class Screen4 extends StatelessWidget {
+  const Screen4({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Screen4')),
+      body: const Center(
+        child: Text(
+          'Screen4',
+          style: TextStyle(fontSize: 30),
+        ),
+      ),
+    );
+  }
+}
+
+class Screen5 extends StatelessWidget {
+  const Screen5({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Screen5')),
+      body: const Center(
+        child: Text(
+          'Screen5',
+          style: TextStyle(fontSize: 30),
+        ),
+      ),
+    );
   }
 }
