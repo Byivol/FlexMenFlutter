@@ -62,6 +62,13 @@ class _QrCodeState extends State<QrCode> {
               SizedBox( height: 150,
               ),
               Image.asset('assets/icons/qrcode.jpg', height: 80 ),
+              SizedBox(height: 25,
+              ),
+              Text('324544', 
+              style: TextStyle(fontSize: 16
+              ),
+              ), 
+              Text('Губин Евгений Александрович', style: TextStyle(fontSize: 20),)
           ],
         ),
       ),

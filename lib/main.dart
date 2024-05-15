@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:flutter_application_2/homewindow.dart';
-import 'Screens/notifications.dart';
-import 'Screens/qrcode.dart';
-=======
 import 'package:flutter_application_2/Home.dart';
 import 'Screens/Notifications.dart';
 import 'Screens/QRcode.dart';
->>>>>>> 9906483a824b4ccf188cc6aeb3e0a7fdcef641a2
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
