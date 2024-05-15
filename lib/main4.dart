@@ -1,6 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/Home.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'Screens/qrcode.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +29,7 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> _buildScreens() {
       return [
-        const Screen1(),
+        const HomeScreen(),
         const Screen2(),
         const Screen3(),
         const Screen4(),
@@ -78,22 +79,27 @@ class BottomNavBar extends StatelessWidget {
 
     controller = PersistentTabController(initialIndex: 0);
     return Scaffold(
+        appBar: AppBar(
+          title: Text('124'),
+        ),
         bottomNavigationBar: PersistentTabView(
-      context,
-      screens: _buildScreens(),
-      items: _navBarsItems(),
-      controller: controller,
-      backgroundColor: Colors.white,
-      resizeToAvoidBottomInset: true,
-      popAllScreensOnTapOfSelectedTab: true,
-      popActionScreens: PopActionScreensType.all,
-      screenTransitionAnimation: const ScreenTransitionAnimation(
-        animateTabTransition: true,
-        curve: Curves.ease,
-        duration: Duration(milliseconds: 200),
-      ),
-      navBarStyle: NavBarStyle.simple,
-    ));
+          context,
+          screens: _buildScreens(),
+          items: _navBarsItems(),
+          controller: controller,
+          backgroundColor: Colors.white,
+          resizeToAvoidBottomInset: true,
+          popAllScreensOnTapOfSelectedTab: false,
+          hideNavigationBar: false,
+          hideNavigationBarWhenKeyboardShows: false,
+          popActionScreens: PopActionScreensType.all,
+          screenTransitionAnimation: const ScreenTransitionAnimation(
+            animateTabTransition: true,
+            curve: Curves.ease,
+            duration: Duration(milliseconds: 200),
+          ),
+          navBarStyle: NavBarStyle.simple,
+        ));
   }
 }
 
@@ -103,7 +109,6 @@ class Screen1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Screen1')),
       body: Center(
         child: FloatingActionButton(
           onPressed: () {
