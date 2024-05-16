@@ -105,6 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: CheckMarkIndicator(
+          child: SafeArea(
         child: ListView(
             physics: const BouncingScrollPhysics(
                 parent: AlwaysScrollableScrollPhysics()),
@@ -226,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ]),
-      ),
+      )),
     );
   }
 }
