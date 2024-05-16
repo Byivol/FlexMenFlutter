@@ -13,9 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-              backgroundColor: Colors.black, selectedItemColor: Colors.black)),
       debugShowCheckedModeBanner: false,
       home: const BottomNavBar(),
     );
