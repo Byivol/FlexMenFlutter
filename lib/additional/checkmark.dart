@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +21,6 @@ class _CheckMarkIndicatorState extends State<CheckMarkIndicator>
   @override
   Widget build(BuildContext context) {
     return CustomRefreshIndicator(
-      indicatorFinalizeDuration: const Duration(milliseconds: 200),
       offsetToArmed: _indicatorSize,
       onRefresh: () => Future.delayed(const Duration(seconds: 2)),
       durations: const RefreshIndicatorDurations(
