@@ -102,7 +102,6 @@ class BottomNavBar extends StatelessWidget {
           screens: buildScreens(),
           items: navBarsItems(),
           controller: controller,
-          backgroundColor: Colors.white,
           resizeToAvoidBottomInset: true,
           popAllScreensOnTapOfSelectedTab: false,
           hideNavigationBar: false,
