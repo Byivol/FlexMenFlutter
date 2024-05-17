@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+// ignore: implementation_imports
 import 'package:flutter_image_slideshow/src/indicator.dart';
 
 class ImageSlideshow extends StatefulWidget {
