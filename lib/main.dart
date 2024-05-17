@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 import 'screens/home_screen.dart';
 
@@ -7,30 +7,12 @@ void main() {
   runApp(const MyApp());
 }
 
-const MaterialColor primaryBlack = MaterialColor(
-  _blackPrimaryValue,
-  <int, Color>{
-    50: Color(0xFF000000),
-    100: Color(0xFF000000),
-    200: Color(0xFF000000),
-    300: Color(0xFF000000),
-    400: Color(0xFF000000),
-    500: Color(_blackPrimaryValue),
-    600: Color(0xFF000000),
-    700: Color(0xFF000000),
-    800: Color(0xFF000000),
-    900: Color(0xFF000000),
-  },
-);
-const int _blackPrimaryValue = 0xFF000000;
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: primaryBlack),
       debugShowCheckedModeBanner: false,
       home: BottomNavBar(),
     );
@@ -126,7 +108,7 @@ class Screen1 extends StatelessWidget {
       body: Center(
         child: FloatingActionButton(
           onPressed: () {
-            PersistentNavBarNavigator.pushNewScreen(
+            pushNewScreen(
               context,
               screen: const Screen2(),
               withNavBar: true,

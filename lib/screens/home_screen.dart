@@ -4,6 +4,8 @@ import 'package:flutter_application_2/routes/schedule.dart';
 import 'package:flutter_application_2/additional/Imagesslideshow.dart';
 import 'package:flutter_application_2/additional/checkmark.dart';
 import 'package:flutter_application_2/Routes/account.dart';
+import 'package:flutter_application_2/screens/notifications_screen.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -72,6 +74,12 @@ class _HomeScreenState extends State<HomeScreen> {
               )),
           IconButton(
               onPressed: () {
+                pushNewScreen(
+                  context,
+                  screen: Notifications(),
+                  withNavBar: true, // OPTIONAL VALUE. True by default.
+                  pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                );
                 Navigator.push(
                   context,
                   MaterialPageRoute(
